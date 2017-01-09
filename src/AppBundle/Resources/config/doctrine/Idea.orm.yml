@@ -1,0 +1,28 @@
+AppBundle\Entity\Idea:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\IdeaRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+        status:
+            type: string
+            length: 255
+    manyToOne:
+        category:
+            targetEntity: AppBundle\Entity\Category
+            inversedBy: ideas
+            joinColumn:
+                name: category_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

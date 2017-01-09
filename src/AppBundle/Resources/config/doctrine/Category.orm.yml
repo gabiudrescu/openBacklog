@@ -1,0 +1,23 @@
+AppBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            unique: true
+        description:
+            type: text
+            nullable: false
+    oneToMany:
+        ideas:
+            targetEntity: AppBundle\Entity\Idea
+            mappedBy: category
+    lifecycleCallbacks: {  }
